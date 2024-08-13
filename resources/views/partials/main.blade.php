@@ -25,6 +25,8 @@
     <link rel="stylesheet" type="text/css" href="css/lib/settings.css">
     <link rel="stylesheet" type="text/css" href="css/lib/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="css/helper.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
 
     <!-- MAIN STYLE -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
