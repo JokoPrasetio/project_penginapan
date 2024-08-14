@@ -1,6 +1,6 @@
 @extends('partials.content')
 @section('body_content')
-<section class="ot-accomd-modations">
+<section class="ot-accomd-modations" id="ourproperties">
     <div class="container">
         <div class="content">
             <div class="row">

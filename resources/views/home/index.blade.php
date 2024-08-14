@@ -1,5 +1,6 @@
 @extends('partials.content')
 @section('body_content')
+
        <!-- CHECK AVAILABILITY -->
         @include('home.filter')
     <!-- END / CHECK AVAILABILITY -->

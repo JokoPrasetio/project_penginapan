@@ -19,3 +19,11 @@ Route::get('/', function () {
 Route::get('/properties', function(){
     return view('properties.index');
 });
+
+Route::get('/contact', function(){
+    return view('contact.index');
+});
+
+Route::get('/restaurant', function(){
+    return view('restaurant.index');
+});
