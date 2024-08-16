@@ -1149,7 +1149,7 @@
             }
         });
 
-        $('#ajax-form-search-room .vailability-submit .awe-btn').on('click', function () {
+        $('#ajax-form-search-room .vailability-submit').on('click', function () {
             $(this).parents('form:first').submit();
         });
     }
@@ -1182,7 +1182,7 @@
 
 })(jQuery);
 
-// function for ajax 
+// function for ajax
 function sendBooking() {
     var $ = jQuery;
     $('#ajax-form-search-send').validate({

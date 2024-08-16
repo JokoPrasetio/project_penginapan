@@ -66,8 +66,16 @@
                     <div class="header_right float-right">
 
                         <span class="login-register">
-                            <a href="login.html">Login</a>
-                            <a href="register.html">register</a>
+                            @if(auth()->user())
+                            <form action="/logout" method="post">
+                                @csrf
+                            <button type="submit" class="awe-btn awe-btn-13">
+                                <div>Logout</div>
+                            </button>
+                        </form>
+                            @else
+                            <a href="/login">Login</a>
+                            @endif
                         </span>
 
                     </div>
