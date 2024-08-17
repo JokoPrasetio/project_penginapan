@@ -25,3 +25,27 @@ function deleteItem(uid, name){
 
     formDelete.attr("action", `/product/${uid}`)
 }
+
+var itemCountElement = document.getElementById('itemCount');
+var selectedItems = [];
+var totalPrice = 0;
+function shopItem(uid, name, price){
+    if (!selectedItems.some(item => item.uid === uid)) {
+        selectedItems.push({ uid, name, price, qty: 1});
+        totalPrice += price;
+        itemCountElement.textContent = selectedItems.length;
+    }
+    console.log('====================================');
+    console.log(selectedItems);
+    console.log('====================================');
+    paymentModal()
+}
+
+function paymentModal(){
+
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    paymentModal();
+});
+

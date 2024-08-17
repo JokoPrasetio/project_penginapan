@@ -1,6 +1,38 @@
 @extends('partials.content')
 
 @section('body_content')
+<style>
+    /* Tombol melayang */
+.floating-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 100%;
+    z-index: 1000; /* Pastikan tombol berada di atas konten lainnya */
+    transition: all 0.8s ease;
+    width: 70px;
+    height: 70px;
+    }
+
+/* Efek berputar */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+.floating-button:hover {
+    animation: float 2s ease-in-out infinite;
+}
+#itemCount {
+    position: absolute;
+    top: -1px;
+    right: 45px;
+    background-color: rgb(107, 82, 18);
+    color: white;
+    padding: 2px 6px;
+    font-size: 1.75rem;
+}
+</style>
 <section class="section-restaurant-4 bg-white" id="restaurant">
     <div class="container">
 
@@ -19,8 +51,13 @@
                     @endif
                     @include('partials.alert')
                 </div>
-
-                <ul>
+                    <button
+                        class="btn btn-warning floating-button"
+                        type="button" data-toggle="modal" data-target="#add_shift_modal" >
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span id="itemCount" class="badge badge-light"></span>
+                    </button>
+                 <ul>
                     <li><a href="#tabs-1">Food <i class="fa-solid fa-pizza-slice"></i></a></li>
                     <li><a href="#tabs-2">Drink <i class="fa-solid fa-mug-hot"></i></a></li>
                 </ul>
@@ -50,7 +87,7 @@
 
                                         </p>
                                         <div style="display: flex; justify-content: flex-end; margin-right:-7rem;">
-                                            <del><button class="btn btn-warning" style="margin-right: 0.5rem;"><i class="fa-solid fa-cart-shopping"></i></button></del>
+                                            <del><button type="button" class="btn btn-warning" style="margin-right: 0.5rem;" onclick="shopItem('{{ $value->uid }}' , '{{ $value->name }}', '{{ $value->price}}')"><i class="fa-solid fa-cart-shopping"></i></button></del>
                                             @if(auth()->user())
                                             <del><button class="btn btn-primary" style="margin-right: 0.5rem;" onclick="editItem('{{ $value->uid,}}', '{{ $value->name }}', '{{ $value->category }}', '{{ $value->price}}', '{{ $value->description }}')"><i class="fa-solid fa-pen-to-square"></i></button></del>
                                             <del><button class="btn btn-danger" type="button" onclick="deleteItem('{{ $value->uid }}', '{{ $value->name}}')"><i class="fa-solid fa-trash"></i></button></del>
@@ -93,7 +130,7 @@
 
                                         </p>
                                         <div style="display: flex; justify-content: flex-end; margin-right:-7rem;">
-                                            <del><button class="btn btn-warning" style="margin-right: 0.5rem;"><i class="fa-solid fa-cart-shopping"></i></button></del>
+                                            <del><button class="btn btn-warning" style="margin-right: 0.5rem;" onclick="shopItem('{{ $value->uid }}')"><i class="fa-solid fa-cart-shopping"></i></button></del>
                                             @if(auth()->user())
                                             <del><button class="btn btn-primary" style="margin-right: 0.5rem;" onclick="editItem('{{ $value->uid,}}', '{{ $value->name }}', '{{ $value->category }}', '{{ $value->price}}', '{{ $value->description }}')"><i class="fa-solid fa-pen-to-square"></i></button></del>
                                             <del><button class="btn btn-danger" type="button" onclick="deleteItem('{{ $value->uid }}', '{{ $value->name}}')"><i class="fa-solid fa-trash"></i></button></del>
