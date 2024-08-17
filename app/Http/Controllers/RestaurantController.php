@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\product;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -11,7 +12,13 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+        $products = product::whereIn('category', ['food', 'drink'])->get();
+        $produkMakanan = product::where('category', 'food')->get();
+        $produkMinuman = product::where('category', 'drink')->get();
+        $payload = [
+            'product' =>$products
+        ];
+       return view('restaurant.index', $payload);
     }
 
     /**

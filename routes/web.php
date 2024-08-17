@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\RestaurantController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', [AuthController::class, 'index'])->middleware('guest');
 Route::post('/auth', [AuthController::class, 'authentication']);
 Route::post('/logout', [AuthController::class, 'logout']);
-
+Route::resource('/product', ProdukController::class);
 Route::get('/', function () {
     return view('home.index');
 });
@@ -29,6 +31,4 @@ Route::get('/contact', function(){
     return view('contact.index');
 });
 
-Route::get('/restaurant', function(){
-    return view('restaurant.index');
-});
+Route::get('/restaurant', [RestaurantController::class, 'index']);

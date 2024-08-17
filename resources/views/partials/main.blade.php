@@ -30,17 +30,10 @@
 
     <!-- MAIN STYLE -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-    <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-    <![endif]-->
 </head>
-
-<!--[if IE 7]> <body class="ie7 lt-ie8 lt-ie9 lt-ie10"> <![endif]-->
-<!--[if IE 8]> <body class="ie8 lt-ie9 lt-ie10"> <![endif]-->
-<!--[if IE 9]> <body class="ie9 lt-ie10"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <body> <!--<![endif]-->
+ <body>
 
 
     <!-- PRELOADER -->
@@ -137,7 +130,7 @@
     <script type="text/javascript" src="js/lib/jquery.magnific-popup.min.js"></script>
     <script type="text/javascript" src="js/lib/SmoothScroll.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"></script>
 </body>
 
-<!-- Mirrored from landing.engotheme.com/html/lotus/demo/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 11 Aug 2024 00:53:28 GMT -->
 </html>

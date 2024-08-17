@@ -27,13 +27,13 @@
                                                         src="images/img/dirah-cottage.jpg" alt="" style="height: 430px;"></a>
                                         <div class="bgr pt20 pb20">
                                             <div class="details">
-                                                <h2 class="title upper"><a href="https://beds24.com/booking.php">Dirah Cottage</a></h2>
+                                                <h2 class="title upper"><a href="https://beds24.com/booking.php" class="text-decoration-none">Dirah Cottage</a></h2>
                                                 <p class="price upper font-monserat f16 bold mb0 c-main">
                                                 </p>
                                                 <div class="info">
                                                     <p class="mt20 mb40">
                                                         Size: 80 m2, Capacity: 4 pax, Bed: 2 Queen Beds, Facilities: Kitchen, Parking Lot, Private Pool,...</p>
-                                                    <a class="awe-btn awe-btn-12 btn-medium font-hind bold f12"
+                                                    <a class="awe-btn awe-btn-12 btn-medium font-hind bold f12 text-decoration-none"
                                                     href="https://beds24.com/booking.php">Click here</a>
                                                 </div>
                                             </div>
@@ -48,12 +48,12 @@
                                                         src="images/img/pondok-panji-ubud.jpg" style="height: 430px;" alt=""></a>
                                         <div class="bgr pt20 pb20">
                                             <div class="details">
-                                                <h2 class="title upper"><a href="https://beds24.com/booking.php">Pondok Panji Ubud</a></h2>
+                                                <h2 class="title upper"><a href="https://beds24.com/booking.php" class="text-decoration-none">Pondok Panji Ubud</a></h2>
                                                 <p class="price upper font-monserat f16 bold mb0 c-main">
                                                 </p>
                                                 <div class="info">
                                                     <p class="mt20 mb40">Size: 20 m2, Capacity: 2 person, Bed: Queen Beds, Facilities: AC, Shared Pool, Shared Kitchen,...</p>
-                                                    <a class="awe-btn awe-btn-12 btn-medium font-hind bold f12"
+                                                    <a class="awe-btn awe-btn-12 btn-medium font-hind bold f12 text-decoration-none"
                                                     href="https://beds24.com/booking.php">Click here</a>
                                                 </div>
                                             </div>
@@ -68,12 +68,12 @@
                                                         src="images/img/Wardana-Ubud-Villa.jpg" style="height: 430px;" alt=""></a>
                                         <div class="bgr pt20 pb20">
                                             <div class="details">
-                                                <h2 class="title upper"><a href="https://beds24.com/booking.php">Wardana Ubud Villa</a></h2>
+                                                <h2 class="title upper"><a href="https://beds24.com/booking.php" class="text-decoration-none">Wardana Ubud Villa</a></h2>
                                                 <p class="price upper font-monserat f16 bold mb0 c-main">
                                                 </p>
                                                 <div class="info">
                                                     <p class="mt20 mb40">Size: 20 m2, Capacity: 2 person, Bed: Queen Beds, Facilities: AC, Private Kitchen, Private Terrace,..</p>
-                                                    <a class="awe-btn awe-btn-12 btn-medium font-hind bold f12"
+                                                    <a class="awe-btn awe-btn-12 btn-medium font-hind bold f12 text-decoration-none"
                                                     href="https://beds24.com/booking.php">Click here</a>
                                                 </div>
                                             </div>
