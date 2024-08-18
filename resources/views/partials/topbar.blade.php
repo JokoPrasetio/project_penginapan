@@ -9,6 +9,11 @@
         <li class="{{ Request::is('restaurant*') ? 'current-menu-item' : ''}}">
             <a href="/restaurant#restaurant">Restaurant</a>
         </li>
+        @if(auth()->user())
+        <li class="{{ Request::is('request-pesanan*') ? 'current-menu-item' : ''}}">
+            <a href="/request-pesanan">Request Pesanan</a>
+        </li>
+        @endif
         <li>
             <a href="#">Blog</a>
 

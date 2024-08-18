@@ -116,8 +116,12 @@ class ProdukController extends Controller
     {
       try {
         $product = product::where('uid', $uid)->first();
-         Storage::disk('image')->delete($product->image);
-         $product->delete();
+        $payload = [
+            'status' => 'off'
+        ];
+        $product->update($payload);
+        //  Storage::disk('image')->delete($product->image);
+        //  $product->delete();
         return back()->with(['alertSuccess' => 'Berhasil hapus item!']);
       } catch (\Throwable $th) {
        return back()->with(['alertError' => 'Gagal hapus item!']);

@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('table_transaction', function (Blueprint $table) {
             $table->id();
+            $table->string('uid')->unique();
+            $table->string('name');
+            $table->string('name_room');
+            $table->string('no_wa');
+            $table->enum('status', ['pending', 'approved', 'reject'])->default('pending');
             $table->timestamps();
         });
     }

@@ -641,6 +641,19 @@ footer .copyright {
   footer .copyright p {
     margin-bottom: 0; }
 
+/* CSS kustom untuk responsivitas */
+#deleteButton {
+    margin-left: 33rem; /* Margin untuk desktop */
+}
+
+/* Margin kiri otomatis pada perangkat mobile */
+@media (max-width: 767px) {
+    #deleteButton {
+        margin-left: auto;
+        margin-right: auto;
+        display: block; /* Agar margin auto bekerja, tombol harus memiliki display block */
+    }
+}
 
 
 

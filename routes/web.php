@@ -32,3 +32,14 @@ Route::get('/contact', function(){
 });
 
 Route::get('/restaurant', [RestaurantController::class, 'index']);
+Route::post('/transaction/restaurant', [RestaurantController::class, 'store']);
+Route::get('/request-pesanan', [RestaurantController::class, 'requestOrder']);
+Route::put('/approved-order/{uid}', [RestaurantController::class, 'approvedOrder'])->middleware('auth');
+Route::put('/reject-order/{uid}', [RestaurantController::class, 'approvedOrder'])->middleware('auth');
+Route::get('/detail-order/{uid}', [RestaurantController::class, 'detailOrder'])->middleware('auth');
+Route::post('/report-download', [RestaurantController::class, 'downloadReport'])->middleware('auth');
+Route::get('/history', [RestaurantController::class, 'history'])->middleware('auth');
+
+// Route::get('/notif-email', function(){
+//     return view('mail.pesanan');
+// });

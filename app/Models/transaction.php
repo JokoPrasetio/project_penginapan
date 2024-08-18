@@ -12,4 +12,9 @@ class transaction extends Model
     protected $table = 'table_transaction';
     protected $guarded = ['id'];
     public $timestamps = true;
+    protected $with = ['transactionDetail'];
+
+    public function transactionDetail(){
+        return $this->hasMany(transactionDetails::class, 'transaction_uid', 'uid');
+    }
 }
