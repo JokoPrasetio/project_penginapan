@@ -15,6 +15,8 @@
                 <ul style="background-color: #62a6eb; padding: 15px; border-radius: 5px;">
                 <li style="color: white; font-weight:600">Terdapat Pesanan dari kamar: {{ $payload['name_room'] ?? '-'}}
                     </li>
+                <li style="color: white; font-weight:600">Pesanan Untuk Tanggal : {{ $payload['date'] ?? '-'}} / {{ $payload['time'] ?? '-'}} 
+                    </li>
 
                 </ul>
                 <p style="margin-bottom: 12px; color:rgb(54, 51, 51)">Konfirmasi Sekarang di website</p>

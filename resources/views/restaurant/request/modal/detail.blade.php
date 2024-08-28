@@ -10,6 +10,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Status</th>
                             <th>Makanan / Minuman</th>
                             <th>Qty</th>
                             <th>Harga</th>

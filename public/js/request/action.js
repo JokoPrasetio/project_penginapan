@@ -81,6 +81,16 @@ function historyApproval(){
                 let row = `
                     <tr>
                         <td>${index + 1}</td>
+                        <td>
+                        <del>
+                          <button
+                            class="btn ${item?.status === 'approved' ? 'btn-success' : 'btn-danger'}"
+                            style="margin-right: 0.5rem;">
+                            ${item?.status === 'approved' ? 'Diterima' : 'Ditolak'}
+                            </button>
+
+                        </del>
+                        </td>
                         <td>${item?.name}</td>
                         <td>${item.name_room}</td>
                         <td>${item.no_wa}</td>

@@ -10,6 +10,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Status</th>
                             <th>Nama</th>
                             <th>Nama Ruangan</th>
                             <th>No.Whatsapp</th>

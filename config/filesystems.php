@@ -59,7 +59,7 @@ return [
         'image' => [
             'driver' => 'local',
             'root'   => public_path('assets') . '/img/product',
-            'url' => env('APP_URL') . '/assets/product',
+            'url' => env('APP_URL') . '/assets/img/product',
             'visibility' => 'public',
         ],
 

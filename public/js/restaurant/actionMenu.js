@@ -168,8 +168,8 @@ function pesananModal(){
         newDiv.className = "row restaurant_item";
         newDiv.style.marginBottom = "20px";
          newDiv.innerHTML = `
-         <div class="col-xs-4">
-                <a href="#"><img src="assets/img/product/${data.image}" class="img-responsive" alt=""></a>
+         <div class="col-xs-3">
+                <a href="#"><img src="assets/img/product/${data.image}" class="img-responsive" alt="image" width="300"/></a>
         </div>
         <div class="col-xs-8">
                 <h4 class="product-name">

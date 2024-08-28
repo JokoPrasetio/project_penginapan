@@ -51,11 +51,15 @@ class RestaurantController extends Controller
                 'name' => 'required',
                 'name_room' => 'required',
                 'no_wa' => 'required|numeric',
+                'date' => 'required',
+                'time' => 'required',
             ]);
             $payload = [
                 'name' => $validatedData['name'],
                 'name_room' => $validatedData['name_room'],
                 'no_wa' => $validatedData['no_wa'],
+                'date' => $validatedData['date'],
+                'time' => $validatedData['time'],
                 'uid' => (new helperController)->getUid()
             ];
             $transaction = transaction::create($payload);
@@ -166,7 +170,7 @@ class RestaurantController extends Controller
         try {
             $tempStart = $startdate . " 00:00:00";
             $tempEnddate = $enddate . " 23:59:59";
-            $transaction = transaction::whereBetween('created_at', [$tempStart, $tempEnddate])->get();
+            $transaction = transaction::whereBetween('created_at', [$tempStart, $tempEnddate])->whereNotIn('status', ['pending'])->get();
             $filename = "Laporan $startdate - $enddate.xlsx";
             $row = 4;
             $spreedsheet = new Spreadsheet();
