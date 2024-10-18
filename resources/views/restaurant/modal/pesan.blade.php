@@ -15,8 +15,11 @@
                             <div class="col-md-12" id="itemBasket">
                             </div>
                             <div class="col-md-5">
-                                <div class="form-group">
-                                    <p style="font-weight: 400; font-size:15px;">Total Harga:
+                                <button class="btn btn-sm btn-primary">Tax 10%</button>
+                                <button class="btn btn-sm btn-primary">Service Charge 5% </button>
+                                <div class="form-group" style="margin-top: 0.5rem;">
+
+                                    <p style="font-weight: 400; font-size:15px;">Total:
                                     <span style="font-weight: 600; font-size:18px;" id="totalPrice">0</span>
                                 </div>
                                 <div class="alert alert-info alert-dismissible" role="alert" style="font-size: 15px; margin-bottom:12px;">
@@ -57,15 +60,38 @@
 </div>
 
 <script>
-    // Dapatkan tanggal hari ini
-    var today = new Date().toISOString().split('T')[0];
-    // Atur min date untuk input tanggal
-    document.getElementById('date').setAttribute('min', today);
+    // Dapatkan waktu saat ini dalam UTC dan tambahkan offset UTC+7 (420 menit)
+    var now = new Date();
+    var utcOffset = 420; // 420 menit = 7 jam
+    now.setMinutes(now.getMinutes() + now.getTimezoneOffset() + utcOffset);
+
+    // Format jam dan menit dengan padStart untuk dua digit
+    var hours = String(now.getHours()).padStart(2, '0');
+    var minutes = String(now.getMinutes()).padStart(2, '0');
+    var currentTime = hours + ':' + minutes;
+
+    // Setel nilai default waktu pada input time
+    document.getElementById('time').value = currentTime;
+
+    // Dapatkan tanggal hari ini dalam format YYYY-MM-DD
+    var today = now.toISOString().split('T')[0];
+
+    // Jika waktu sekarang adalah 00:00 hingga 06:59, tambahkan satu hari ke tanggal hari ini
+    if (hours < 7) {
+        now.setDate(now.getDate() + 1);
+        today = now.toISOString().split('T')[0];
+    }
+
+    // Setel nilai default dan min untuk input tanggal
+    var dateInput = document.getElementById('date');
+    dateInput.value = today;
+    dateInput.setAttribute('min', today);
 
     // Fungsi untuk mengatur min time jika tanggal adalah hari ini
     document.getElementById('date').addEventListener('change', function() {
         var selectedDate = this.value;
         var now = new Date();
+        now.setMinutes(now.getMinutes() + now.getTimezoneOffset() + utcOffset);
         if (selectedDate === today) {
             // Format waktu tanpa detik
             var hours = String(now.getHours()).padStart(2, '0');
@@ -77,3 +103,6 @@
         }
     });
 </script>
+
+
+

@@ -9,11 +9,11 @@
 
                     <div class="text">
                         <h2>Contact</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+                        <p>We’d love to hear from you! Whether you have questions, need more information, or want to book your next stay, feel free to reach out to us. Our team is here to help make your experience at Canggu Loft Studio unforgetable.</p>
                         <ul>
-                            <li><i class="icon lotus-icon-location"></i> 225 Beach Street, Australian</li>
-                            <li><i class="icon lotus-icon-phone"></i> +61 2 6854 8496</li>
-                            <li><i class="icon fa fa-envelope-o"></i> <a href="https://landing.engotheme.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0f63607b7a7c67607b6a634f68626e6663216c6062">[email&#160;protected]</a></li>
+                            <li><i class="icon lotus-icon-location"></i> Jalan Umadui no 99, Babakan, Canggu Kuta Utara Bali</li>
+                            <li><i class="icon lotus-icon-phone"></i> +628113809998</li>
+                            <li><i class="icon fa fa-envelope-o"></i> <a href="mailto:info@cangguloftstudio.com" class="__cf_email__" data-cfemail="0f63607b7a7c67607b6a634f68626e6663216c6062">info@cangguloftstudio.com</a></li>
                         </ul>
                     </div>
                 </div>

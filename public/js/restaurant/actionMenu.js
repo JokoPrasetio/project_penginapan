@@ -1,6 +1,7 @@
 
 function editItem(uid, name, category, price, description){
     // Mendapatkan elemen modal edit dan form
+    console.log(uid);
     var modalEdit = $("#editModal");
     var formEdit = $("#form_edit");
     var editName = document.getElementById("edit_name");

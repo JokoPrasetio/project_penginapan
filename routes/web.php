@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\RestaurantController;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,20 @@ Route::post('/auth', [AuthController::class, 'authentication']);
 Route::post('/logout', [AuthController::class, 'logout']);
 Route::resource('/product', ProdukController::class);
 Route::get('/', function () {
-    return view('home.index');
+    $response = Http::get("https://blog.cangguloftstudio.com/wp-json/wp/v2/posts?_embed");
+
+    $blogs = json_decode($response);
+    $blogs = array_slice($blogs, 0, 6);
+    foreach ($blogs as $i => $b) {
+        $blogs[$i]->img = '';
+        if (isset($b->_embedded->{'wp:featuredmedia'})) {
+            $blogs[$i]->img = $b->_embedded->{'wp:featuredmedia'}[0]->link;
+        }
+    }
+    $payload = [
+        'blogs' => $blogs
+    ];
+    return view('home.index', $payload);
 });
 Route::get('/properties', function(){
     return view('properties.index');

@@ -5,12 +5,12 @@
 <head>
     <meta charset="utf-8">
     <!-- TITLE -->
-    <title>Index 2</title>
+    <title>Canggu Loft Studio</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="shortcut icon" href="images/favicon.png"/>
+    <!--<link rel="shortcut icon" href="images/favicon.png"/>-->
 
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Hind:400,300,500,600%7cMontserrat:400,700" rel='stylesheet' type='text/css'>
@@ -48,13 +48,15 @@
         <header id="header" class="header-v2">
 
             <!-- HEADER TOP -->
+            
             <div class="header_top">
                 <div class="container">
                     <div class="header_left float-left">
-                        <span><i class="lotus-icon-cloud"></i> 18 °C</span>
-                        <span><i class="lotus-icon-location"></i> 225 Beach Street, Australian</span>
-                        <span><i class="lotus-icon-phone"></i> 1-548-854-8898</span>
+                        <span><i class="lotus-icon-cloud"></i> 27-30 °C</span>
+                        <span><i class="lotus-icon-location"></i> Bali, Indonesia</span>
+                        <a href="tel:+62818564492"><span><i class="lotus-icon-phone"></i> +628113809998</span></a>
                     </div>
+
                     <div class="header_right float-right">
 
                         <span class="login-register">
@@ -81,7 +83,7 @@
                 <div class="container">
                     <!-- HEADER LOGO -->
                     <div class="header_logo">
-                        <a href="#"><img src="images/logo-header.png" alt=""></a>
+                        <!--<a href="#"><img src="images/logo-header.png" alt=""></a>-->
                     </div>
                     <!-- END / HEADER LOGO -->
 
@@ -130,7 +132,7 @@
     <script type="text/javascript" src="js/lib/SmoothScroll.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"></script>
-   
+
 
 </body>
 

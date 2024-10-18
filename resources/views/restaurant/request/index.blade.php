@@ -21,7 +21,8 @@
                                 <th>Nama Ruangan</th>
                                 <th>No.Whatsapp</th>
                                 <th>Total Harga</th>
-                                <th>Tanggal Order</th>
+                                <th>Pesanan untuk Tanggal</th>
+                                <th>Tanggal Pemesanan</th>
                                 <th>Detail</th>
                                 <th>Aksi</th>
                             </tr>
@@ -34,6 +35,8 @@
                                 <td>{{ $item['name_room']}}</td>
                                 <td>{{ $item['no_wa']}}</td>
                                 <td>{{ number_format($item['total_price'], 0, ',', '.') }}</td>
+                                <td>{{ $item['date'] }} / {{ \Carbon\Carbon::parse($item['time'])->format('H:i') }}</td>
+
                                 <td>{{ \Carbon\Carbon::parse($item['created_at'])->format('d M Y, H:i') }}</td>
                                 <td><del><button class="btn btn-primary" style="margin-right: 0.5rem;" onclick="detailOrder('{{ $item['uid'] }}')"><i class="fa-solid fa-circle-info"></i></button></del></td>
                                 <td> <del><button class="btn btn-success" style="margin-right: 0.5rem;" onclick="ApprovedOrder('{{ $item['uid'] }}', '{{ $item['name'] }}', '{{ $item['name_room']}}')"><i class="fa-solid fa-circle-check"></i></button></del>
@@ -44,10 +47,16 @@
 
                         </tbody>
                     </table>
+                        <div class="" style="margin-bottom:12px; margin-left:12px; float: left;">
+                            <strong>Info</strong>
+                            <button class="btn btn-sm btn-primary">Tax 10%</button>
+                            <button class="btn btn-sm btn-primary">Service Charge 5% </button>
+                        </div>
                   </div>
 
                 </div>
             </div>
+
         </div>
     </div>
 </section>

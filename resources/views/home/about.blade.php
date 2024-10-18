@@ -9,9 +9,9 @@
                 </div>
                 <div class="col-md-6">
                     <div class="text">
-                        <h2 class="heading">ABOUT US</h2>
-                        <span>Lorem Ipsum is simply dummy text</span>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source</p>
+                        <h4 class="heading">About Us</h4>
+                        <p>Discover modern loft-style living in the heart of Bali. Located just minutes from Batu Bolong Beach and Bali Paddle Academy, Canggu Loft Studio offers a unique blend of comfort, style, and convenience. Whether you're here to surf, relax by the pool, or explore the vibrant culture of Canggu, our loft apartments provide the perfect home base.
+ </p>
                         <a href="#" class="awe-btn awe-btn-default">READ MORE</a>
                     </div>
                 </div>

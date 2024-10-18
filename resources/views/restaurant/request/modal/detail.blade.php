@@ -10,13 +10,12 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Status</th>
                             <th>Makanan / Minuman</th>
                             <th>Qty</th>
                             <th>Harga</th>
                         </tr>
                     </thead>
-                    <tbody id="body_table">
+                    <tbody id="body_table_detail">
                     </tbody>
                 </table>
             </div>

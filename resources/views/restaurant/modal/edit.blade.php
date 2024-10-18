@@ -17,8 +17,10 @@
                   <label for="exampleInputPassword1">Kategori</label>
                   <select class="form-control" name="category" id="edit_category">
                     <option>Pilih Kategori</option>
-                    <option value="food">Makanan</option>
-                    <option value="drink">Minuman</option>
+                     <option value="breakfast">Breakfast</option>
+                    <option value="lunch&dinner">Lunch & Dinner</option>
+                    <option value="coffee&tea">Coffee and Tea</option>
+                    <option value="selectionOfDrinks">Selection of Drinks</option>
                   </select>
                 </div>
                 <div class="form-group">

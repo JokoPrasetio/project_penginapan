@@ -36,11 +36,11 @@ function detailOrder(uid){
 
 
 function showOrderDetailsInModal(data){
-    var modalDetail =$("#modal_detail")
-    modalDetail.modal("show")
+    $('#modal_detail').modal('show');
+
     var confirmDetail =$("#confirm_detail_pesanan")
     confirmDetail.html(`${data?.name}  (${data?.name_room})`)
-    var bodyTable = $("#body_table")
+    var bodyTable = $("#body_table_detail")
 
     bodyTable.empty();
 
@@ -64,50 +64,87 @@ function reportDownload(){
     fetch()
 }
 
-function historyApproval(){
-    var historyModal = $("#modal_history")
-    var bodyTableHistory = $("#body_table_history")
-        historyModal.modal("show")
-        bodyTableHistory.empty();
-        fetch(`/history`)
+function historyApproval(page = 1) {
+    const historyModal = $("#modal_history");
+    const bodyTableHistory = $("#body_table_history");
+    const perPage = 10; // Jumlah item per halaman
+
+    historyModal.modal("show");
+    bodyTableHistory.empty();
+
+    fetch(`/history?page=${page}&limit=${perPage}`)
         .then(response => {
-            if(!response.ok){
+            if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
             }
             return response.json();
         })
-        .then(data=>{
-            data.forEach((item, index) => {
+        .then(data => {
+            const transactions = data.data;
+            const totalPages = data.last_page;
+            const currentPage = data.current_page; // Ambil halaman saat ini dari data
+            // Render rows
+            bodyTableHistory.empty();
+            transactions.forEach((item, index) => {
                 let row = `
                     <tr>
-                        <td>${index + 1}</td>
+                        <td>${(currentPage - 1) * perPage + index + 1}</td>
                         <td>
-                        <del>
-                          <button
-                            class="btn ${item?.status === 'approved' ? 'btn-success' : 'btn-danger'}"
-                            style="margin-right: 0.5rem;">
-                            ${item?.status === 'approved' ? 'Diterima' : 'Ditolak'}
+                            <button class="btn ${item.status === 'approved' ? 'btn-success' : 'btn-danger'}" style="margin-right: 0.5rem;">
+                                ${item.status === 'approved' ? 'Diterima' : 'Ditolak'}
                             </button>
-
-                        </del>
                         </td>
-                        <td>${item?.name}</td>
+                        <td>${item.name}</td>
                         <td>${item.name_room}</td>
                         <td>${item.no_wa}</td>
                         <td>${new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(item.total_price)}</td>
-                       <td>${new Date(item.created_at).toLocaleString('id-ID', {
+                        <td>${new Date(item.created_at).toLocaleString('id-ID', {
                             day: '2-digit',
                             month: 'short',
                             year: 'numeric',
                             hour: '2-digit',
                             minute: '2-digit'
                         })}</td>
-
                     </tr>
-                `
-                bodyTableHistory.append(row)
-            })
+                `;
+                bodyTableHistory.append(row);
+            });
+
+            // Add pagination controls
+            let pagination = '<nav><ul class="pagination">';
+
+            // Previous page
+            pagination += `
+                <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                    <a class="page-link" href="#" aria-label="Previous" ${currentPage === 1 ? '' : `onclick="historyApproval(${currentPage - 1})"`}>
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            `;
+
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                pagination += `
+                    <li class="page-item ${i === currentPage ? 'active' : ''}">
+                        <a class="page-link" href="#" ${i === currentPage ? '' : `onclick="historyApproval(${i})"`}>${i}</a>
+                    </li>
+                `;
+            }
+
+            // Next page
+            pagination += `
+                <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                    <a class="page-link" href="#" aria-label="Next" ${currentPage === totalPages ? '' : `onclick="historyApproval(${currentPage + 1})"`}>
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            `;
+
+            pagination += '</ul></nav>';
+            bodyTableHistory.append(pagination);
         })
+
+
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
         });

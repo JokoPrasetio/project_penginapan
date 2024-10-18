@@ -6,6 +6,7 @@
           <h4 class="modal-title" id="myModalLabel">History</h4>
         </div>
             <div class="modal-body">
+
                 <table id="orders-table" class="table">
                     <thead>
                         <tr>
@@ -21,7 +22,16 @@
                     <tbody id="body_table_history">
                     </tbody>
                 </table>
+                <div class="row" style="padding: 12px; margin-top:12px">
+                    <div class="col-md">
+                        <strong>Info</strong>
+                        <button class="btn btn-sm btn-primary">Tax 10%</button>
+                        <button class="btn btn-sm btn-primary">Service Charge 5% </button>
+                    </div>
+                </div>
             </div>
+
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
             </div>

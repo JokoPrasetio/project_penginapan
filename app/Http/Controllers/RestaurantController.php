@@ -24,7 +24,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $products = product::whereIn('category', ['food', 'drink'])->where('status', 'on')->get();
+        $products = product::whereIn('category', ['selectionOfDrinks', 'coffee&tea', 'lunch&dinner', 'breakfast'])->where('status', 'on')->get();
         $payload = [
             'product' =>$products
         ];
@@ -44,7 +44,6 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        $data = request()->all();
         DB::beginTransaction();
         try {
             $validatedData = request()->validate([
@@ -79,7 +78,6 @@ class RestaurantController extends Controller
             DB::commit();
             return back()->with(['alertSuccess' => 'Berhasil memesan makanan']);
         } catch (\Throwable $th) {
-            dd($th);
         DB::rollBack();
            return back()->with(['alertError' => 'gagal memesan makanan']);
         }
@@ -123,7 +121,10 @@ class RestaurantController extends Controller
             $totalPrice = $transaction->transactionDetail->sum(function ($detail) {
                 return $detail->price * $detail->qty; // Mengalikan harga dengan kuantitas
             });
-            $transaction->total_price = $totalPrice;
+            $tax = $totalPrice * 0.1;
+            $serviceCharge = $totalPrice * 0.05;
+
+            $transaction->total_price = $totalPrice + $tax + $serviceCharge;
             return $transaction;
         });
 
@@ -270,17 +271,22 @@ class RestaurantController extends Controller
         }
     }
 
-    public function history(){
-        $transaction = transaction::whereNotIn('status', ['pending'])->get();
-        $transactions = $transaction->map(function ($transaction) {
+    public function history(Request $request){
+        $perPage = $request->get('limit', 10);
+        $transaction = transaction::whereNotIn('status', ['pending']);
+        $paginatedTransactions = $transaction->paginate($perPage);
+        $transactions = $paginatedTransactions->getCollection()->map(function ($transaction) {
             $totalPrice = $transaction->transactionDetail->sum(function ($detail) {
                 return $detail->price * $detail->qty; // Mengalikan harga dengan kuantitas
             });
-            $transaction->total_price = $totalPrice;
+            $tax = $totalPrice * 0.1;
+            $serviceCharge = $totalPrice * 0.05;
+
+            $transaction->total_price = $totalPrice + $tax + $serviceCharge;
             return $transaction;
         });
-
-        return $transactions;
+        $paginatedTransactions->setCollection($transactions);
+        return response()->json($paginatedTransactions);
     }
 
 }

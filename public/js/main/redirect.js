@@ -1,29 +1,32 @@
 document.getElementById("findRate").addEventListener("click", function(event) {
     event.preventDefault();
 
-    // Ambil nilai dari input dan select
-    const arrivalDate = document.getElementById("arrivalDate").value;
-    const departureDate = document.getElementById("departureDate").value;
-    const numadult = document.getElementById("adults").value;
+   const adult = document.getElementById('adults').value;
+   const arrivalDate = document.getElementById('arrivalDate').value;
+   const night = document.getElementById('night').value
+    // const children = document.getElementById('children').value;
 
-    // Cek apakah semua input sudah diisi
-    if (arrivalDate && departureDate && numadult) {
-        // Format tanggal yang sesuai untuk query string
-        const [month, day, year] = arrivalDate.split('/');
+   const arrival = new Date(arrivalDate)
+   const fdate_date = arrival.getDate();
+   const fdate_monthyear = `${arrival.getFullYear()}-${String(arrival.getMonth() + 1).padStart(2, '0')}`;
 
-        // Hitung jumlah malam (numnight)
-        const startDate = new Date(arrivalDate);
-        const endDate = new Date(departureDate);
-        const timeDiff = endDate - startDate;
-        const numnight = Math.ceil(timeDiff / (1000 * 3600 * 24)); // Menggunakan Math.ceil untuk pembulatan ke atas
+   const url = `https://beds24.com/booking2.php?fdate_date=${fdate_date}&fdate_monthyear=${fdate_monthyear}&numnight=${night}&numadult=${adult}&ownerid=127611&propid=243917`
 
-        // Buat URL dengan query string
-        const url = `https://beds24.com/booking2.php?date_date=${day}&fdate_monthyear=${month}/${year}&numnight=${numnight}&numadult=${numadult}&subcheck=&ownerid=91884&subgetdates=1&type=0&page=showprice&referer=BookingStrip`;
-
-        // Redirect ke URL yang telah dibangun
-        window.location.href = url;
-    } else {
-        // Redirect ke URL default tanpa parameter jika input tidak lengkap
-        window.location.href = "https://beds24.com/booking2.php";
-    }
+   window.location.href = url;
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const arrivalDateInput = document.getElementById('arrivalDate');
+
+    // Mendapatkan tanggal saat ini
+    const today = new Date();
+
+    // Format tanggal menjadi YYYY-MM-DD (atau format lain yang diinginkan)
+    const formattedDate = today.toISOString().split('T')[0];
+
+    // Mengatur nilai input menjadi tanggal saat ini
+    arrivalDateInput.value = formattedDate;
+
+});
+
