@@ -1,7 +1,6 @@
 
 function editItem(uid, name, category, price, description){
     // Mendapatkan elemen modal edit dan form
-    console.log(uid);
     var modalEdit = $("#editModal");
     var formEdit = $("#form_edit");
     var editName = document.getElementById("edit_name");
@@ -109,7 +108,6 @@ function increaseQty(uid) {
 function decreaseQty(uid) {
     // Temukan item berdasarkan UID
     let item = selectedItems.find(item => item.uid === uid);
-    console.log(selectedItems);
 
     // Jika item ditemukan dan kuantitas lebih dari 1, kurangi kuantitasnya
     if (item && item.qty > 1) {
@@ -203,7 +201,9 @@ function updateTotalPrice() {
     selectedItems.forEach(item => {
         totalPrice += item.price * item.qty;
     });
-
+    $sc = totalPrice * 0.05;
+    $tax = totalPrice * 0.1;
+    totalPrice = $sc + $tax + totalPrice
     // Perbarui tampilan total harga di elemen dengan id 'totalPrice'
     var totalHargaElement = document.getElementById('totalPrice');
     if (totalHargaElement) {

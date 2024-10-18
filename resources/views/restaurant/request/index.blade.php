@@ -65,7 +65,5 @@
 @include('restaurant.request.modal.detail')
 @include('restaurant.request.modal.report')
 @include('restaurant.request.modal.history')
-
-
 <script src="/js/request/action.js"></script>
 @endsection
